@@ -8,5 +8,3 @@ export const api = axios.create({
     Authorization: `Bearer ${cookies.get('ignis_v')}`,
   },
 })
-
-console.log(cookies.get('ignis_v'))

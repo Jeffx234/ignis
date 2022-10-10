@@ -14,6 +14,7 @@ export const theme = {
     Title: '1.5rem',
     Input: '0.875rem',
     TitleCard: '0.75rem',
+    TitleCardDesktop: '1.2rem',
     TextRegular: '0.75rem',
     TextSmall: '0.625rem',
   },

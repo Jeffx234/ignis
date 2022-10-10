@@ -4,18 +4,18 @@ export const CardComponent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100%;
+  height: 450px;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.black};
-
-  @media (min-width: 768px) {
-    width: 100%;
-  }
+  width: 100%;
+  
 `
 
 export const CardTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.Title};
+  font-size: ${({ theme }) => theme.fontSizes.TitleCardDesktop};
   color: ${({ theme }) => theme.colors.white};
+
+  
 `
 export const CardText = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.TextRegular};
@@ -24,6 +24,14 @@ export const CardText = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  .seeMore {
+    max-width: 100%;
+    overflow: hidden;
+    color: ${({ theme }) => theme.colors.primaryRed};
+    cursor: pointer;
+    white-space: none;
+  }
 `
 export const CardImage = styled.div`
   width: 100%;
@@ -38,18 +46,27 @@ export const CardImage = styled.div`
 `
 
 export const CardCircle = styled.div`
-  border-radius: 50%;
-  margin-top: -2.3rem;
-  border: 2px solid;
-  border-color: ${({ theme }) => theme.colors.linearGradient};
   width: 40px;
   height: 40px;
-  background: black;
+  border-radius: 50%;
+  margin-top: -2.3rem;
+  background: ${({ theme }) => theme.colors.linearGradient};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ p {
+  border-radius: 50%;
+  border-color: ${({ theme }) => theme.colors.linearGradient};
+  width: 90%;
+  background: ${({ theme }) => theme.colors.background};
+  height: 90%;
   color: ${({ theme }) => theme.colors.white};
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: ${({ theme }) => theme.fontSizes.TextRegular};
+ }
 `
 export const CardButton = styled.div``
 

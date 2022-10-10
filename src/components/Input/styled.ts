@@ -1,3 +1,4 @@
+import { Input } from './../../../styles/pages/dashboard';
 import styled from 'styled-components'
 
 export const ContainerInput = styled.div`
@@ -24,7 +25,7 @@ export const InputComponent = styled.input`
   border-radius: 8px;
   padding: 12px 17px;
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.fontSizes.TextRegular};
+  font-size: ${({ theme }) => theme.fontSizes.Input};
   &::placeholder {
     color: ${({ theme }) => theme.colors.white};
   }

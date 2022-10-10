@@ -16,6 +16,7 @@ declare module 'styled-components' {
       Title: string
       Input: string
       TitleCard: string
+      TitleCardDesktop: string
       TextRegular: string
       TextSmall: string
     }

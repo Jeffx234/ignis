@@ -45,10 +45,38 @@ export const Input = styled.input`
 export const DivGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1rem;
+  gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
+  justify-content: center;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 200px);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 150px);
+  }
 `
+
+export const DivGrid2 = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 200px);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 150px);
+  }
+
+`
+
 export const LogoHome = styled.div`
   display: flex;
   align-items: center;

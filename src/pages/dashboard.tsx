@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { IoChevronBackSharp } from 'react-icons/io5'
 import { Heading } from '../../styles/global'
 import {
   DashboardLogo,
   DivGrid,
+  DivGrid2,
   InputDashboard,
   LogoHome,
   Input,
@@ -17,10 +18,10 @@ import { useSwr } from '../hooks/useSwr'
 import { Cards } from '../components/Cards'
 import Link from 'next/link'
 
-function Page({ index, search, onClick }) {
-  const { data, isError } = useSwr(`/movies?page=${index}`)
-  console.log(data)
 
+function Page({ index, search, onClick, image, description }) {
+  const { data, isError } = useSwr(`movies?page=${index}`)
+  
   if (!data) {
     return <p>Loading...</p>
   }
@@ -33,7 +34,8 @@ function Page({ index, search, onClick }) {
     return movie.title.toLowerCase().includes(search.toLowerCase())
   })
 
-  return filteredMovies?.map((movie) => (
+
+  return filteredMovies?.map((movie, index) => (
     <div key={movie.id} >
       <Cards
         title={movie.title}
@@ -50,20 +52,22 @@ function Page({ index, search, onClick }) {
 export function Dashboard() {
   const [cnt, setCnt] = useState(1)
   const [search, setSearch] = useState('')
-
   const { user } = useSelector((state: any) => state.user)
 
   const pages = []
+ 
+  
   for (let i = 1; i <= cnt; i++) {
     pages.push(
       <Page
         index={i}
         key={i}
         search={search}
-        id="card"
+        onClick={() => {}}
       />,
     )
   }
+  
   return (
     <ContainerDashboard>
       <DashboardLogo>
@@ -90,7 +94,9 @@ export function Dashboard() {
       </DashboardLogo>
       <div>
         <h2>Filmes</h2>
-        <DivGrid>{pages}</DivGrid>
+        <DivGrid>
+          {pages}
+        </DivGrid>
         <ButtonVeeMore>
           <Button type="button" onClick={() => setCnt(cnt + 1)}>
             Ver mais

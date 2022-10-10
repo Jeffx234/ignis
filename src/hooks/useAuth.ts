@@ -32,12 +32,10 @@ export const useAuth = () => {
       const { token } = response.data.accessToken
       const { user } = response.data
       Cookies.set('ignis_v', token)
-      setUser(user)
       dispatch({ type: 'SET_USER', payload: user })
       router.push('/dashboard')
     } catch (err) {
       Message.errors()
-      console.log(err)
     } finally {
       setLoading(false)
     }

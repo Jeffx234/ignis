@@ -9,7 +9,6 @@ import {
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 interface InputProps {
-  placeholder: string
   type: string
   label: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -17,7 +16,6 @@ interface InputProps {
 }
 
 export function Input({
-  placeholder,
   type,
   label,
   onChange,
@@ -25,9 +23,8 @@ export function Input({
 }: InputProps) {
   return (
     <ContainerInput>
-      <label htmlFor={placeholder}>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <InputComponent
-        placeholder={placeholder}
         type={type}
         onChange={onChange}
         {...props}
@@ -46,10 +43,9 @@ export const InputPassword = ({
 }: InputProps) => {
   return (
     <ContainerInputPassword>
-      <label htmlFor={placeholder}>{label}</label>
+      <label htmlFor={label}>{label}</label>
       <InputComponentPassword>
         <InputComponent
-          placeholder={placeholder}
           type={type}
           onChange={onChange}
           {...props}

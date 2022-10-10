@@ -36,13 +36,11 @@ export default function Signin() {
           </Link>
           <Logo />
           <Input
-            placeholder="Email"
             type="email"
             label="Email / username"
             onChange={(e) => setEmail(e.target.value)}
           />
           <InputPassword
-            placeholder="Password"
             type={showPassword ? 'text' : 'password'}
             label="Senha"
             onChange={(e) => setPassword(e.target.value)}
