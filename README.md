@@ -36,7 +36,7 @@ $ yarn
 
 ```bash
 # Execute
-$ yarn start
+$ yarn dev
 ```
 
 Acesse <http://localhost:3000> para ver o resultado.
