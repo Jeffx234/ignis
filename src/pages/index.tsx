@@ -1,32 +1,27 @@
-import { ContainerMain } from '../../styles/global'
-import Image from 'next/image'
-import { Button } from '../components/Button'
-
 import {
   HomeContainer,
   HomeDescription,
   HomeTitle,
-  HomeLogo,
-  ImagePerson,
-  HomeButton,
+  HomeLink,
 } from '../../styles/pages/home'
+import { Logo } from '../components/Logo'
+import Image from 'next/image'
+import { Button } from '../components/Button'
 
 export default function Home() {
   return (
     <HomeContainer>
-      <HomeLogo>
-        <Image src="/Logo.svg" alt="Logo" width={100} height={100} />
-      </HomeLogo>
       <HomeTitle>
+        <Logo />
         <h1>Do sofá pro seu celular</h1>
         <HomeDescription>A Revolução do cinema na sua casa</HomeDescription>
-        <img src="/Persona.svg" alt="Person" width={400} height={400} />
       </HomeTitle>
-      <HomeButton>
-        <Button type="submit" onClick={() => {}}>
-          <a href="/signin">Começar a ver filmes</a>
+      <HomeLink>
+        <Image src="/Persona.svg" alt="Person" width={400} height={400} />
+        <Button type="button">
+          <a href="/signin">Entrar</a>
         </Button>
-      </HomeButton>
+      </HomeLink>
     </HomeContainer>
   )
 }

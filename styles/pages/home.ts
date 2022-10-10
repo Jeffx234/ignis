@@ -3,18 +3,21 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   max-width: 500px;
   margin: 0 auto;
   padding: 0 1rem;
+  background: ${({ theme }) => theme.colors.black};
 
   text-align: center;
   width: 100%;
   @media (min-width: 720px) {
-    max-width: 500px;
-    margin: 0 auto;
-    border: 1px solid blue;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 
@@ -30,6 +33,17 @@ export const HomeTitle = styled.div`
     width: 100%;
     max-width: 300px;
     max-height: 400px;
+  }
+
+  @media (min-width: 720px) {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1 {
+      margin-bottom: 1rem;
+    }
   }
 `
 
@@ -53,8 +67,7 @@ export const ImagePerson = styled.div`
 `
 
 export const HomeLogo = styled.div``
-export const HomeButton = styled.button`
-  border: 2px solid red;
+export const HomeButton = styled.div`
   width: 100%;
   height: 3rem;
   background: transparent;
@@ -69,4 +82,11 @@ export const HomeButton = styled.button`
     text-decoration: none;
     color: ${({ theme }) => theme.colors.white};
   }
+`
+export const HomeLink = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 `

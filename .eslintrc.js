@@ -10,5 +10,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    camelcase: 'off',
+    '@typescript-eslint/camelcase': 'off',
+  },
 }

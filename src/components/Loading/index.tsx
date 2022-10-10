@@ -1,15 +1,11 @@
-import { Spinner } from './styles'
+import { Container } from './styles'
 
 export const Loading = () => {
   return (
-    <Spinner>
-      <span>L</span>
-      <span>O</span>
-      <span>A</span>
-      <span>D</span>
-      <span>I</span>
-      <span>N</span>
-      <span>G</span>
-    </Spinner>
+    <Container>
+      <svg viewBox="25 25 50 50">
+        <circle r="20" cy="50" cx="50"></circle>
+      </svg>
+    </Container>
   )
 }

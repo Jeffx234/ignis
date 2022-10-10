@@ -1,55 +1,41 @@
 import styled from 'styled-components'
 
-export const Spinner = styled.div`
-  height: 50px;
-  width: max-content;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 auto;
-  font-family: monospace;
-  letter-spacing: 1em;
-  color: #f5f5f5;
-  filter: drop-shadow(0 0 10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    animation: loading6454 1.75s ease infinite;
+export const Container = styled.div`
+  svg {
+    width: 1rem;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
   }
 
-  span:nth-child(2) {
-    animation-delay: 0.25s;
+  circle {
+    fill: none;
+    stroke: hsl(214, 97%, 59%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
   }
 
-  span:nth-child(3) {
-    animation-delay: 0.5s;
-  }
-
-  span:nth-child(4) {
-    animation-delay: 0.75s;
-  }
-
-  span:nth-child(5) {
-    animation-delay: 1s;
-  }
-
-  span:nth-child(6) {
-    animation-delay: 1.25s;
-  }
-
-  span:nth-child(7) {
-    animation-delay: 1.5s;
-  }
-
-  @keyframes loading6454 {
-    0%,
+  @keyframes rotate4 {
     100% {
-      transform: translateY(0);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash4 {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
     }
 
     50% {
-      transform: translateY(-10px);
+      stroke-dasharray: 90, 200;
+      stroke-dashoffset: -35px;
+    }
+
+    100% {
+      stroke-dashoffset: -125px;
     }
   }
 `

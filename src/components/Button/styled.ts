@@ -12,6 +12,13 @@ export const ContainerButton = styled.div`
   &:hover {
     filter: brightness(0.9);
   }
+
+  a {
+    width: 100%;
+    display: block;
+    height: 13;
+    border: 2px solid red;
+  }
 `
 
 export const ButtonComponent = styled.button`
@@ -26,4 +33,13 @@ export const ButtonComponent = styled.button`
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSizes.default};
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.white};
+  }
 `

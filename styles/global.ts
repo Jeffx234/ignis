@@ -26,29 +26,35 @@ body, input, textarea, button {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #1E1E1E;
+  background: black;
 }
 
 `
 
 export const ContainerMain = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background: #1e1e1e;
+  background: ${({ theme }) => theme.colors.black};
+  max-width: 500px;
 
   @media (min-width: 720px) {
-    max-width: 500px;
     margin: 0 auto;
+    padding: 0 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 `
 
-export const Form = styled.form`
+export const FormDiv = styled.div`
   width: 100%;
 `
 export const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.Title};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.gray};
+
+  span {
+    color: ${({ theme }) => theme.colors.white};
+  }
 `

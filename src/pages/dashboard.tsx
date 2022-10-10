@@ -1,36 +1,92 @@
-import { useSwr } from '../hooks/useSwr'
-import { useAuth } from '../hooks/useAuth'
-import { ContainerMain, Heading } from '../../styles/global'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { IoChevronBackSharp } from 'react-icons/io5'
+import { Heading } from '../../styles/global'
 import {
   DashboardLogo,
   DivGrid,
   InputDashboard,
+  LogoHome,
+  Input,
+  ContainerDashboard,
 } from '../../styles/pages/dashboard'
-import Image from 'next/image'
-import { Input } from '../components/Input'
-const Dashboard = () => {
-  // const { data, isError } = useSwr('/movies')
-  // const { user } = useAuth()
+import { Button } from '../components/Button'
+import { Logo } from '../components/Logo'
+import { useSwr } from '../hooks/useSwr'
+import { Cards } from '../components/Cards'
+import Link from 'next/link'
 
-  // if (isError) return <div>Falha no carregamento</div>
-  // if (!data) return <div>Carregando.</div>
+function Page({ index, search }) {
+  const { data, isError } = useSwr(`/movies?page=${index}`)
 
-  // console.log(data)
-  // console.log(user)
+  if (!data) {
+    return <p>Loading...</p>
+  }
+
+  if (isError) {
+    return <p>Error</p>
+  }
+
+  const filteredMovies = data?.data?.results?.filter((movie) => {
+    return movie.title.toLowerCase().includes(search.toLowerCase())
+  })
+
+  return filteredMovies.map((movie) => (
+    <div key={movie.id}>
+      <Cards
+        title={movie.title}
+        description={movie.overview}
+        image={movie.poster_path}
+        onClick={() => {}}
+        index={movie.id}
+        key={movie.id}
+      />
+    </div>
+  ))
+}
+
+export function Dashboard() {
+  const [cnt, setCnt] = useState(1)
+  const [search, setSearch] = useState('')
+
+  const { user } = useSelector((state: any) => state.user)
+
+  const pages = []
+  for (let i = 1; i <= cnt; i++) {
+    pages.push(<Page index={i} key={i} search={search} />)
+  }
 
   return (
-    <ContainerMain>
+    <ContainerDashboard>
       <DashboardLogo>
-        <p> - </p>
-        <Image src="/Logo.svg" alt="Logo" width={100} height={100} />
+        <LogoHome>
+          <Link href="/">
+            <a>
+              <IoChevronBackSharp size={30} color="#fff" />
+            </a>
+          </Link>
+          <Logo />
+        </LogoHome>
+        <Heading>
+          {' '}
+          Seja bem vindo, <span>{user.name}</span>{' '}
+        </Heading>
+        <InputDashboard>
+          <Input
+            placeholder="Buscar filme"
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <img src="/search.svg" alt="search" />
+        </InputDashboard>
       </DashboardLogo>
-      <Heading> Seja bem vindo, Jeferson Luis </Heading>
-      <InputDashboard type="text" placeholder="Pesquisar" />
       <div>
-        <Heading>Filmes</Heading>
-        <DivGrid></DivGrid>
+        <DivGrid>{pages}</DivGrid>
+        <Button type="button" onClick={() => setCnt(cnt + 1)}>
+          Ver mais
+        </Button>
       </div>
-    </ContainerMain>
+    </ContainerDashboard>
   )
 }
 

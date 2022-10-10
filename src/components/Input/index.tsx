@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
-import { ContainerInput, InputComponent } from './styled'
+import React from 'react'
+import {
+  ContainerInput,
+  InputComponent,
+  ContainerInputPassword,
+  InputComponentPassword,
+} from './styled'
 
 interface InputProps {
   placeholder: string
   type: string
   label: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClick?: any
 }
 
 export function Input({
@@ -33,22 +39,23 @@ export const InputPassword = ({
   type,
   label,
   onChange,
+  onClick,
   ...props
 }: InputProps) => {
-  const [showPassword, setShowPassword] = useState(false)
-
   return (
-    <ContainerInput>
+    <ContainerInputPassword>
       <label htmlFor={placeholder}>{label}</label>
-      <InputComponent
-        placeholder={placeholder}
-        type={showPassword ? 'text' : 'password'}
-        onChange={onChange}
-        {...props}
-      />
-      <button type="button" onClick={() => setShowPassword(!showPassword)}>
-        {showPassword ? 'Hide' : 'Show'}
-      </button>
-    </ContainerInput>
+      <InputComponentPassword>
+        <InputComponent
+          placeholder={placeholder}
+          type={type}
+          onChange={onChange}
+          {...props}
+        />
+        <button type="button" onClick={() => onClick}>
+          <img src="/Group.svg" alt="eye" />
+        </button>
+      </InputComponentPassword>
+    </ContainerInputPassword>
   )
 }
