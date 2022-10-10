@@ -20,13 +20,12 @@ html {
 }
 
 body, input, textarea, button {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 400;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: black;
+  background: ${({ theme }) => theme.colors.background};
 }
 
 `
@@ -35,7 +34,6 @@ export const ContainerMain = styled.div`
   display: flex;
   width: 100%;
   height: 100vh;
-  background: ${({ theme }) => theme.colors.black};
   max-width: 500px;
 
   @media (min-width: 720px) {
@@ -49,6 +47,7 @@ export const ContainerMain = styled.div`
 
 export const FormDiv = styled.div`
   width: 100%;
+  height: 80%;
 `
 export const Heading = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.Title};

@@ -6,6 +6,8 @@ import {
   InputComponentPassword,
 } from './styled'
 
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+
 interface InputProps {
   placeholder: string
   type: string
@@ -52,8 +54,8 @@ export const InputPassword = ({
           onChange={onChange}
           {...props}
         />
-        <button type="button" onClick={() => onClick}>
-          <img src="/Group.svg" alt="eye" />
+        <button type="button" onClick={onClick}>
+          {type === 'password' ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
         </button>
       </InputComponentPassword>
     </ContainerInputPassword>

@@ -4,7 +4,7 @@ import { ContainerButton, ButtonComponent } from './styled'
 interface ButtonProps {
   children: ReactNode
   type: 'button' | 'submit' | 'reset'
-  onClick: any
+  onClick?: any
   disabled?: boolean
 }
 

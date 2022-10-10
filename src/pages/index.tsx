@@ -16,7 +16,7 @@ export default function Home() {
         <h1>Do sofá pro seu celular</h1>
         <HomeDescription>A Revolução do cinema na sua casa</HomeDescription>
       </HomeTitle>
-      <HomeLink>
+      <HomeLink> 
         <Image src="/Persona.svg" alt="Person" width={400} height={400} />
         <Button type="button">
           <a href="/signin">Entrar</a>

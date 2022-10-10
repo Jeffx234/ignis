@@ -9,6 +9,7 @@ declare module 'styled-components' {
       primaryRed: string
       blue: string
       linearGradient: string
+      background: string
     }
     fontSizes: {
       default: string

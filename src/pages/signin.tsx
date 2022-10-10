@@ -7,10 +7,13 @@ import { Loading } from '../components/Loading'
 import { ToastContainer } from 'react-toastify'
 import { Form } from '../../styles/pages/signin'
 import { useAuth } from '../hooks/useAuth'
+import Link from 'next/link'
+import { IoChevronBackSharp } from 'react-icons/io5'
 
 export default function Signin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const { signIn, loading } = useAuth()
 
   async function handleSignIn(e: FormEvent<HTMLFormElement>) {
@@ -18,10 +21,19 @@ export default function Signin() {
     signIn({ email, password })
   }
 
+  function handleShowPassword() {
+    setShowPassword(!showPassword)
+  }
+
   return (
     <ContainerMain>
       <Form>
         <FormDiv>
+          <Link href="/">
+            <a>
+              <IoChevronBackSharp size={30} color="#fff" />
+            </a>
+          </Link>
           <Logo />
           <Input
             placeholder="Email"
@@ -31,9 +43,10 @@ export default function Signin() {
           />
           <InputPassword
             placeholder="Password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             label="Senha"
             onChange={(e) => setPassword(e.target.value)}
+            onClick={handleShowPassword}
           />
         </FormDiv>
         <Button type="submit" onClick={handleSignIn} disabled={loading}>

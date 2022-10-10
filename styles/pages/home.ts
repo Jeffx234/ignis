@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const HomeContainer = styled.div`
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   flex-direction: column;
   max-width: 500px;
   margin: 0 auto;
-  padding: 0 1rem;
-  background: ${({ theme }) => theme.colors.black};
-
+  padding: 2rem;
+  background: url('/background.png') no-repeat center;
+  background-size: cover;
   text-align: center;
   width: 100%;
   @media (min-width: 720px) {

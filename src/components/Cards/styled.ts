@@ -4,10 +4,13 @@ export const CardComponent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: auto;
+  height: 100%;
   border-radius: 8px;
-  width: 100%;
   background: ${({ theme }) => theme.colors.black};
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const CardTitle = styled.h3`

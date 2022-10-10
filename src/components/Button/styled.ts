@@ -17,7 +17,6 @@ export const ContainerButton = styled.div`
     width: 100%;
     display: block;
     height: 13;
-    border: 2px solid red;
   }
 `
 

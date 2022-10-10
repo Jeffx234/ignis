@@ -26,7 +26,7 @@ export const InputComponent = styled.input`
   color: ${({ theme }) => theme.colors.white};
   font-size: ${({ theme }) => theme.fontSizes.TextRegular};
   &::placeholder {
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.white};
   }
 `
 export const ContainerInputPassword = styled.div`
@@ -39,6 +39,7 @@ export const ContainerInputPassword = styled.div`
 
   label {
     color: ${({ theme }) => theme.colors.white};
+    margin-bottom: 8px;
   }
 `
 
@@ -51,10 +52,19 @@ export const InputComponentPassword = styled.div`
   gap: 8px;
 
   input {
+    letter-spacing: 4px;
+  }
+
+  button {
     background: transparent;
     border: none;
     outline: none;
-    padding: 12px 17px;
-    height: 100%;
+    padding: 0 10px;
+  }
+
+  svg {
+    cursor: pointer;
+    font-size: 20px;
+    color: ${({ theme }) => theme.colors.white};
   }
 `

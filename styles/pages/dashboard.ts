@@ -46,7 +46,7 @@ export const DivGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
 `
 export const LogoHome = styled.div`
@@ -58,9 +58,15 @@ export const LogoHome = styled.div`
 export const ContainerDashboard = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  h2 {
+    margin-top: 2.5rem;
+    color: ${({ theme }) => theme.colors.white};
+    font-size: ${({ theme }) => theme.fontSizes.Title};
+  }
 
   @media (min-width: 720px) {
     margin: 0 auto;
@@ -69,4 +75,13 @@ export const ContainerDashboard = styled.div`
     display: flex;
     flex-direction: column;
   }
+`
+
+export const ButtonVeeMore = styled.div`
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 `

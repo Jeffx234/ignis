@@ -9,6 +9,7 @@ import {
   LogoHome,
   Input,
   ContainerDashboard,
+  ButtonVeeMore,
 } from '../../styles/pages/dashboard'
 import { Button } from '../components/Button'
 import { Logo } from '../components/Logo'
@@ -16,8 +17,9 @@ import { useSwr } from '../hooks/useSwr'
 import { Cards } from '../components/Cards'
 import Link from 'next/link'
 
-function Page({ index, search }) {
+function Page({ index, search, onClick }) {
   const { data, isError } = useSwr(`/movies?page=${index}`)
+  console.log(data)
 
   if (!data) {
     return <p>Loading...</p>
@@ -27,17 +29,17 @@ function Page({ index, search }) {
     return <p>Error</p>
   }
 
-  const filteredMovies = data?.data?.results?.filter((movie) => {
+  const filteredMovies = data?.results?.filter((movie) => {
     return movie.title.toLowerCase().includes(search.toLowerCase())
   })
 
-  return filteredMovies.map((movie) => (
-    <div key={movie.id}>
+  return filteredMovies?.map((movie) => (
+    <div key={movie.id} >
       <Cards
         title={movie.title}
         description={movie.overview}
         image={movie.poster_path}
-        onClick={() => {}}
+        onClick={onClick}
         index={movie.id}
         key={movie.id}
       />
@@ -53,9 +55,15 @@ export function Dashboard() {
 
   const pages = []
   for (let i = 1; i <= cnt; i++) {
-    pages.push(<Page index={i} key={i} search={search} />)
+    pages.push(
+      <Page
+        index={i}
+        key={i}
+        search={search}
+        id="card"
+      />,
+    )
   }
-
   return (
     <ContainerDashboard>
       <DashboardLogo>
@@ -81,10 +89,13 @@ export function Dashboard() {
         </InputDashboard>
       </DashboardLogo>
       <div>
+        <h2>Filmes</h2>
         <DivGrid>{pages}</DivGrid>
-        <Button type="button" onClick={() => setCnt(cnt + 1)}>
-          Ver mais
-        </Button>
+        <ButtonVeeMore>
+          <Button type="button" onClick={() => setCnt(cnt + 1)}>
+            Ver mais
+          </Button>
+        </ButtonVeeMore>
       </div>
     </ContainerDashboard>
   )
