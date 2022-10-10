@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+> <b>Ignis Movies</b> 
 
-## Getting Started
+# :pushpin: Conteúdo
 
-First, run the development server:
+- [Tecnologias](#computer-tecnologias)
+- [Executando](#construction_worker-executando)
+- [Licença](#closed_book-licença)
+
+# :computer: Tecnologias
+
+Este projeto foi feito utilizando as seguintes tecnologias:
+
+- [Nextjs](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Axios](https://github.com/axios/axios)
+- [Swr](https://swr.vercel.app/pt-BR)
+- [Styled Components](https://github.com/styled-components/styled-components)
+- [Redux](https://redux.js.org/)
+
+# :construction_worker: Executando
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone o Repositório
+$ git@github.com: https://github.com/Jeffx234/ignis.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+# Acesse a pasta do projeto
+$ cd ignis
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+# Baixe as dependendências
+$ yarn
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+# Execute
+$ yarn start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Acesse <http://localhost:3000> para ver o resultado.
 
-## Learn More
+# :closed_book: Licença
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este projeto está sob a licença [MIT](./LICENSE).
